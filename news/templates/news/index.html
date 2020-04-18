@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+    <script src="{% static 'asset/js/jquery-3.5.0.min.js' %}"></script>
+    <script src="{% static 'asset/js/modernizr.js' %}"></script>
+    <script src="https://kit.fontawesome.com/ca0d22efad.js" crossorigin="anonymous"></script>
+    <title>Malrix</title>
+</head>
+<body>
+    <header class="root">
+        <div class="main-wrapper">
+            <div class="img-mlogo"><img src="{% static 'asset/img/logo.png' %}"></div>
+            <nav class="main-menu">
+                <ul class="menu">
+                    <li><a href="#download">Скачать</a></li>
+                    <li><a href="#features-link">Услуги</a></li>
+                    <li><a href="#nc-link">Новости | Контакты</a></li>
+                    <li><a href="admin">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav">
+                <a href="" class="menu-button">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="root">
+        <section class="main-board" id="download">
+            <div class="main-wrapper">
+                <div class="main-board__left-block">
+                    <h1>
+                        Burning desire
+                    </h1>
+                    <div>Test text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
+                    <div>
+                        <a href="#" class="main-board__button-link">
+                            <i class="fab fa-android"></i>
+                            <div>
+                               <div>Get in on</div>
+                              <div class="main-board__button-link_bold">Google Play</div>
+                            </div>
+                        </a>
+                        <a href="#" class="main-board__button-link">
+                            <i class="fab fa-apple"></i>
+                            <div>
+                               <div>Download on the</div>
+                              <div class="main-board__button-link_bold">Apple Store</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="{% static 'asset/img/mobile-mockup.png' %}" class="img-logo">
+                </div>
+            </div>
+        </section>
+        <section class="features" id="features-link">
+            <div class="main-wrapper">
+                <div class="features__block-item">
+                    <div class="features__item">
+                        <div class="box-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Нужен только телефон</h3>
+                        <P>
+                            Обменивайтесь сообщениями абсолютно бесплатно. Malrix использует Интернет-соединение вашего телефона для отправки/получения сообщений. Таким образом, вы можете избежать платы за SMS.
+                        </P>
+                    </div>
+                    <div class="features__item">
+                        <div class="box-icon">
+                            <i class="fas fa-eye-slash"></i>
+                        </div>
+                        <h3>Безопасность</h3>
+                        <P>
+                            Наша миссия — защищать приватность данных, поэтому мы никогда не продаем и не храним информацию о пользователях.
+                        </P>
+                    </div>
+                    <div class="features__item">
+                        <div class="box-icon">
+                            <a href="google.com" class="box-icon"><i class="fas fa-file" aria-hidden="true"></i></a>
+                        </div>
+                        <h3>Скачать презентацию</h3>
+                        <p>
+                            Кликните по иконке документа, чтобы скачать презентацию сайта
+                        </p>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <div class="news_flex" id="nc-link">
+        <section class="news news_wr">
+            <h2><span>Новости</span></h2>
+            <div class="news_flex">
+            {% for post in posts %}
+            <div class="news_wr main-wrapper thid">
+            <div class="main-wrapper news_wr">
+                <div class="for_pt">
+                    <div class="news__container">
+                        <h3>{{ post.title }}</h3>
+                        <ul>
+							<li>{{ post.text }}</li>
+                        </ul>
+                            {% for comment in post.comment_set.all %}
+							<p>{{ comment.text }}</p>
+								{% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+            </div>
+        </section>
+        <section class="contact">
+            <h2><span>Контакты</span></h2>
+            <div class="contact_wr">
+            <div class="main-wrapper contact_wr thid">
+                <div class="for_pt">
+                    <div class="contact__container">
+                        <p>Россия, Якутск, 677000, Орджоникидзе, 8/1</p>
+                        <p>МОБУ СОШ №5 им. Кривошапкина</p>
+                        <p><br>Гоголев Денис Алексеевич</p>
+                        <div class="contact_num"><b>+7 914 220-58-30</b></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        </div>
+    </main>
+    <div class="b-copyright">
+        <p>© 2020 Malrix. All rights reserved.</p>
+    </div>
+    </div>
+    <script src="{% static 'asset/js/script.js' %}"></script>
+</body>
+</html>
